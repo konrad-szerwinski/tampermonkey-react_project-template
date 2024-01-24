@@ -1,0 +1,28 @@
+{
+    "manifest_version": 3,
+    "name": "Title of ",
+    "description": "A small plugin that helps fill remote plan using csv file",
+    "version": "1.0",
+    "icons": {
+        "16": "icon.png",
+        "48": "icon.png",
+        "128": "icon.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "Url that matches for your site"
+            ],
+            "js": [
+                "bundle.min.js"
+            ],
+            "css": [
+                "style.min.css"
+            ],
+            "all_frames": true
+        }
+    ],
+    "permissions": [
+        "activeTab"
+    ]
+}
