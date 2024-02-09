@@ -41,11 +41,16 @@ module.exports = env => { return {
                         ignore: ['**/*.scss'],
                     },
                 },
-                env.production ?? {
+                
+            ],
+        }),
+        env.production ?? new CopyWebpackPlugin({
+            patterns: [
+                {
                     from: './manifest.json',
                     to: './manifest.json'
                 }
-            ],
+            ]
         }),
         new MiniCssExtractPlugin({
             filename: './style.min.css',
@@ -53,6 +58,6 @@ module.exports = env => { return {
     ],
     output: {
         filename: env.production ? "bundle.min.js" : "bundle.js",
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, env.production ? 'dist/prod' : 'dist/dev'),
     },
 }};
